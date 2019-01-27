@@ -1,26 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container } from 'reactstrap';
+import { Row } from 'reactstrap';
 import MovieItem from './MovieItem';
 
 const MovieList = ({ movies }) => (
   <React.Fragment>
     <div className="movies">
-      <Container>
+      <Row className="d-flex justify-content-center align-items-center">
         {
-          movies.length > 0 ? (
-            movies.map((movie, index) => (
-              <div key={index}>
-                <MovieItem movie={movie} />
+            movies.length > 0 ? (
+              movies.map((movie, index) => (
+                <MovieItem movie={movie} key={index} />
+              ))
+            ) : (
+              <div>
+                No Data Available
               </div>
-            ))
-          ) : (
-            <div>
-              No Data Available
-            </div>
-          )
-        }
-      </Container>
+            )
+          }
+      </Row>
     </div>
 
   </React.Fragment>

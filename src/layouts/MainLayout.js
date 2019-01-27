@@ -14,7 +14,8 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  Container
 } from 'reactstrap';
 
 class MainLayout extends React.Component {
@@ -67,7 +68,10 @@ class MainLayout extends React.Component {
             </Nav>
           </Collapse>
         </Navbar>
-        {children}
+        <Container>
+          {children}
+        </Container>
+
       </div>
     );
   }

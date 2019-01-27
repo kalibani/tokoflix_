@@ -6,12 +6,18 @@ export const SET_ERROR_MESSAGE = 'movies/SET_ERROR_MESSAGE';
 
 export const fetchNowPlayingMovies = () => async (dispatch) => {
   dispatch({ type: TOGGLE_LOADING, isLoading: true });
-  const queryString = { language: 'id-ID', page: 1, region: 'id' };
+
+  const queryString = {
+    language: 'id-ID',
+    page: 1,
+    region: 'id'
+  };
+
   await getNowPlayingMovies(queryString).then(({ data }) => {
     dispatch({ type: SET_DATA_MOVIES, data });
     dispatch({ type: TOGGLE_LOADING, isLoading: false });
   }).catch(({ error }) => {
-    dispatch({ type: SET_ERROR_MESSAGE, message: error.status_message });
+    dispatch({ type: SET_ERROR_MESSAGE, message: 'error.status_message' });
     dispatch({ type: TOGGLE_LOADING, isLoading: false });
   });
 };
