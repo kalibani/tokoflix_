@@ -3,7 +3,9 @@ import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import createHistory from 'history/createBrowserHistory';
 import rootReducer from './stores/reducers';
+import setUpInterceptors from './middlewares/interceptors';
 
+setUpInterceptors();
 export const history = createHistory();
 
 const initialState = {};
