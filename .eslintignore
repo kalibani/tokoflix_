@@ -1,0 +1,16 @@
+# dependencies
+config
+node_modules
+
+# React build
+build
+
+# React scripts
+scripts
+
+# React generate
+dist
+package-lock.json
+
+sdet_test
+serviceWorker.js
