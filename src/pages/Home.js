@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { fetchNowPlayingMovies } from '../stores/actions/Movies';
 import MovieList from '../components/MovieList';
 
-import '../styles/Home.scss';
+import '../styles/index.scss';
 
 class Home extends Component {
   componentDidMount() {

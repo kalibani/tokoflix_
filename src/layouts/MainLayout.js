@@ -18,6 +18,8 @@ import {
   Container
 } from 'reactstrap';
 
+import '../styles/layout.scss';
+
 class MainLayout extends React.Component {
   constructor(props) {
     super(props);
@@ -37,8 +39,8 @@ class MainLayout extends React.Component {
     const { children } = this.props;
     return (
       <div>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">reactstrap</NavbarBrand>
+        <Navbar light expand="md" className="movie-navbar-container">
+          <NavbarBrand href="/" className="movie-navbar-brand">Tokoflix</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
@@ -68,7 +70,7 @@ class MainLayout extends React.Component {
             </Nav>
           </Collapse>
         </Navbar>
-        <Container>
+        <Container className="container-main">
           {children}
         </Container>
 

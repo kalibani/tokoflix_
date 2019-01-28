@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,400i,600,700');
+
+html, body {
+  font-family: 'Titillium Web', sans-serif !important;
+}
+
+.container{
+  &.container-main{
+    max-width: 768px;
+    padding: 0px;
+    min-height: 100vh;
+    margin-top: 15px;
+  }
+}

@@ -1,0 +1,75 @@
+@import '../variables.scss';
+
+.movies {
+  .movie-item-link {
+    color: #3D3D3D;
+    text-decoration: none;
+    &:hover{
+      text-decoration: none;
+    }
+    .movie-item-container {
+      .movie-item-poster {
+        img {
+          width: 100%
+        }
+      }
+      .movie-item-content {
+        height: 170px;
+        padding: 20px 5px;
+        box-shadow: 0 16px 20px -10px rgba(48, 45, 45, 0.5);
+        .movie-item-title {
+          font-size: 16px;
+          display: inline-block;
+          margin-bottom: 10px;
+        }
+        .movie-item-indicator {
+          margin-bottom: 10px;
+          float: right;
+          .on {
+            color: $green;
+          }
+          .off {
+            color: $gray-light;
+          }
+        }
+
+        p {
+          text-align: left;
+          font-size: 14px;
+          color: $gray-light;
+          margin-bottom: 5px;
+        }
+
+        .wrapper-movie-item-price {
+          position: relative;
+          top: 8px;
+          .movie-item-price {
+            color: #ff5722;
+            font-size: 16px;
+            span {
+              margin-right: 2px;
+            }
+          }
+  
+          .movie-item-rating {
+            position: relative;
+            top: -31px;
+            float: right;
+            span {
+              .empty {
+                color: $gray-light;
+                font-size: 14px;
+              }
+              .full {
+                color: $star;
+                font-size: 14px;
+              }
+            }
+        }
+        
+          
+        }
+      }
+    }
+  }
+}
