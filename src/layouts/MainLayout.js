@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 import {
   Collapse,
@@ -11,10 +13,6 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   Container
 } from 'reactstrap';
 
@@ -45,28 +43,22 @@ class MainLayout extends React.Component {
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">reactstrap</NavLink>
+                <NavLink href="/">
+                  <div className="movie-navbar-saldo">
+                    <span className="text">
+                    Saldo (Rp)
+                    </span>
+                    <span className="nominal">100.000</span>
+                  </div>
+                </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/kalibani">GitHub</NavLink>
+                <NavLink href="/"><FontAwesomeIcon icon={faShoppingCart} /></NavLink>
               </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Options
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    Option 1
-                  </DropdownItem>
-                  <DropdownItem>
-                    Option 2
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+              <div className="separator" />
+              <NavItem>
+                <NavLink href="/">Watchlist</NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>

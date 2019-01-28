@@ -20,12 +20,12 @@ class MovieItem extends Component {
     const { movie } = this.props;
     return (
       <React.Fragment>
-        <Col xs="12" sm="6" md="4" lg="4" className="mb-5">
+        <Col xs="12" sm="6" md="4" lg="4" className="mb-4">
           <Link href={`${movie.id}-${urlConverter(movie.title)}`} to={`${movie.id}-${urlConverter(movie.title)}`} className="movie-item-link">
             <div className="movie-item-container">
               <div className="movie-item-poster">
                 <img
-                  height="300"
+                  height="280"
                   src={movie.poster_path && `${process.env.REACT_APP_IMAGE_URL}${movie.poster_path}`}
                   alt="Img Tokoflix"
                 />
@@ -33,8 +33,13 @@ class MovieItem extends Component {
               <div className="movie-item-content">
                 <h5 className="movie-item-title">{movie.title}</h5>
                 <div className="movie-item-indicator">
-                  <span><FontAwesomeIcon icon={faUserCheck} className="on" /></span>
-                  <span><FontAwesomeIcon icon={faUser} className="off" /></span>
+                  {
+                    !movie.isBelong ? (
+                      <span><FontAwesomeIcon icon={faUser} className="off" /></span>
+                    ) : (
+                      <span><FontAwesomeIcon icon={faUserCheck} className="on" /></span>
+                    )
+                  }
                 </div>
                 {
                   movie.overview && (

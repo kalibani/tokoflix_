@@ -23,6 +23,6 @@ export const priceConverter = (rate) => {
 export const IDRFormatter = number => new Intl.NumberFormat('id-ID', { currency: 'IDR' }).format(number);
 
 export const truncateString = (str) => {
-  const stringSplitted = `${str.substring(0, 80)}...`;
+  const stringSplitted = `${str.substring(0, 50)}...`;
   return stringSplitted;
 };

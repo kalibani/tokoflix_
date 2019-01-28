@@ -15,7 +15,7 @@ export default (state = initialState, action) => {
     case SET_DATA_MOVIES:
       return {
         ...state,
-        movies: action.data.results,
+        movies: action.movies,
         currenPage: action.data.page,
         totalPage: action.data.total_pages,
         totalResult: action.data.total_results
