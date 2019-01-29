@@ -1,0 +1,95 @@
+@import 'variables.scss';
+
+.tokoflix-container-detail {
+  margin-top: 30px;
+  .tokoflix-wrapper-image-detail {
+    img {
+      width: 100%;
+    }
+  }
+  .tokoflix-detail-content {
+    .tokoflix-detail-title {
+      font-size: 28px;
+      font-weight: 600;
+      float: left;
+      span {
+        position: relative;
+        top: -10px;
+        left: 2px;
+        svg {
+          color: $green;
+          font-size: 18px;
+        }
+      }
+    }
+    .tokoflix-detail-rating {
+      text-align: right;
+      span {
+        .empty {
+          color: $gray-light;
+          font-size: 20px;
+        }
+        .full {
+          color: $star;
+          font-size: 20px;
+        }
+      }
+
+      .tokoflix-detail-rate {
+        display: inline-table;
+        position: relative;
+        top: -10px;
+        left: 8px;
+        font-size: 22px;
+        font-weight: 600;
+        span {
+          font-weight: normal;
+          font-size: 16px;
+        }
+        .vote-count {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .tokoflix-detail-description {
+      position: relative;
+      top: -15px;
+      color: $gray-light;
+      span {
+        margin-right: 10px;
+      }
+      .tokoflix-detail-genre {
+        display: inline-block;
+      }
+      .separated {
+        margin-left: 10px;
+      }
+    }
+
+    .tokoflix-detail-Price {
+      position: relative;
+      top: -8px;
+      color: #ff5722;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .tokoflix-detail-cast {
+      .tokoflix-detail-label {
+        font-size: 16px;
+        font-weight: bold;
+        color: $gray-light;
+      }
+    }
+
+    .tokoflix-detail-action {
+      margin-top: 30px;
+    }
+ 
+  }
+  .tokoflix-detail-overview {
+    font-size: 16px;
+    color: $gray-light;
+    font-weight: 500;
+  }
+}

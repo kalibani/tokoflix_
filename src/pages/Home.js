@@ -16,7 +16,7 @@ class Home extends Component {
   render() {
     const { movies } = this.props;
     return (
-      <div className="movies">
+      <div className="tokoflix">
         <MovieList movies={movies} />
       </div>
     );

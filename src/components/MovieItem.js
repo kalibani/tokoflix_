@@ -11,7 +11,7 @@ import {
   urlConverter, priceConverter, IDRFormatter, truncateString
 } from '../helpers/Method';
 
-import '../styles/components/movie_list.scss';
+import '../styles/movie_list.scss';
 
 class MovieItem extends Component {
   componentDidMount
@@ -34,7 +34,7 @@ class MovieItem extends Component {
                 <h5 className="movie-item-title">{movie.title}</h5>
                 <div className="movie-item-indicator">
                   {
-                    !movie.isBelong ? (
+                    !movie.is_belong_to ? (
                       <span><FontAwesomeIcon icon={faPlus} className="off" /></span>
                     ) : (
                       <span><FontAwesomeIcon icon={faCheck} className="on" /></span>

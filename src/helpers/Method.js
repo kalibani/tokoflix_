@@ -1,3 +1,12 @@
+import moment from 'moment';
+import momentDurationFormatSetup from 'moment-duration-format';
+
+momentDurationFormatSetup(moment);
+export const durationConverter = duration => (moment.duration(duration, 'minutes').format('h[h], m[min]'));
+
+/* ----------- example format date: 19 Januari 2008 ----------- */
+export const standardDate = date => (date ? moment(date).format('D MMMM YYYY') : '-');
+
 export const urlConverter = (url) => {
   let urlConverted = '';
   if (url) {

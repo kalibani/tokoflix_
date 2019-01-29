@@ -19,7 +19,7 @@ export default (state = initialState, action) => {
     case SET_DATA_MOVIES:
       return {
         ...state,
-        movies: action.movies,
+        movies: action.moviesFix,
         currenPage: action.data.page,
         totalPage: action.data.total_pages,
         totalResult: action.data.total_results
@@ -27,7 +27,7 @@ export default (state = initialState, action) => {
     case SET_DATA_MOVIE:
       return {
         ...state,
-        movie: action.movie
+        movie: action.movieFix
       };
     case TOGGLE_LOADING:
       return {

@@ -1,13 +1,13 @@
 @import 'variables.scss';
 
-.movie-navbar-container {
+.tokoflix-navbar-container {
   box-shadow: rgba(0,0,0,.04) 0 2px 6px 0;
-  .movie-navbar-brand {
+  .tokoflix-navbar-brand {
     letter-spacing: 2px;
     color: $green !important;
   }
 
-  .movie-navbar-saldo {
+  .tokoflix-navbar-saldo {
     .text {
       background-color: $green;
       color: $white;

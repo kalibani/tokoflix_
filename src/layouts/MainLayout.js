@@ -38,14 +38,14 @@ class MainLayout extends React.Component {
     const { children } = this.props;
     return (
       <div>
-        <Navbar light expand="md" className="movie-navbar-container">
-          <NavbarBrand href="/" tag={Link} to="/" className="movie-navbar-brand">Tokoflix</NavbarBrand>
+        <Navbar light expand="md" className="tokoflix-navbar-container">
+          <NavbarBrand href="/" tag={Link} to="/" className="tokoflix-navbar-brand">Tokoflix</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink href="/" tag={Link} to="/">
-                  <div className="movie-navbar-saldo">
+                  <div className="tokoflix-navbar-saldo">
                     <span className="text">
                     Saldo (Rp)
                     </span>
