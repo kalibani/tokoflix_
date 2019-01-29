@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Col } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCheck, faUser, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faPlus, faStar } from '@fortawesome/free-solid-svg-icons';
 import Rating from 'react-rating';
 import {
   urlConverter, priceConverter, IDRFormatter, truncateString
@@ -35,9 +35,9 @@ class MovieItem extends Component {
                 <div className="movie-item-indicator">
                   {
                     !movie.isBelong ? (
-                      <span><FontAwesomeIcon icon={faUser} className="off" /></span>
+                      <span><FontAwesomeIcon icon={faPlus} className="off" /></span>
                     ) : (
-                      <span><FontAwesomeIcon icon={faUserCheck} className="on" /></span>
+                      <span><FontAwesomeIcon icon={faCheck} className="on" /></span>
                     )
                   }
                 </div>

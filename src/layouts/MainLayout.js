@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -38,12 +39,12 @@ class MainLayout extends React.Component {
     return (
       <div>
         <Navbar light expand="md" className="movie-navbar-container">
-          <NavbarBrand href="/" className="movie-navbar-brand">Tokoflix</NavbarBrand>
+          <NavbarBrand href="/" tag={Link} to="/" className="movie-navbar-brand">Tokoflix</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/">
+                <NavLink href="/" tag={Link} to="/">
                   <div className="movie-navbar-saldo">
                     <span className="text">
                     Saldo (Rp)
@@ -53,11 +54,11 @@ class MainLayout extends React.Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/"><FontAwesomeIcon icon={faShoppingCart} /></NavLink>
+                <NavLink href="/" tag={Link} to="/"><FontAwesomeIcon icon={faShoppingCart} /></NavLink>
               </NavItem>
               <div className="separator" />
               <NavItem>
-                <NavLink href="/">Watchlist</NavLink>
+                <NavLink href="/" tag={Link} to="/">Watchlist</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
