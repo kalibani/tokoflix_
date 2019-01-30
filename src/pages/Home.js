@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Row, Col } from 'reactstrap';
+import { ToastContainer } from 'react-toastify';
 import { fetchNowPlayingMovies, handlePagination } from '../stores/actions/Movies';
 import MovieList from '../components/MovieList';
 import BasePagination from '../components/BasePagination';
@@ -10,6 +11,7 @@ import BaseMeta from '../components/BaseMeta';
 import BaseLoader from '../components/BaseLoader';
 
 import '../styles/index.scss';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Home extends Component {
   constructor(props) {
@@ -32,6 +34,7 @@ class Home extends Component {
     return (
       <div className="tokoflix">
         <BaseMeta />
+        <ToastContainer autoClose={3000} />
         {
           moviesPerPage.length === 0 && isLoading ? (
             <Row>

@@ -1,5 +1,6 @@
 import { Map } from 'immutable';
 import { push } from 'react-router-redux';
+import { toast } from 'react-toastify';
 import { getNowPlayingMovies, getNowPlayingMovie } from '../../api';
 
 export const SET_DATA_MOVIES = 'movies/SET_DATA_MOVIES';
@@ -50,8 +51,8 @@ export const fetchNowPlayingMovies = () => async (dispatch, getState) => {
       type: SET_DATA_MOVIES, moviesFix, moviesPerPage, data
     });
     await dispatch({ type: TOGGLE_LOADING, isLoading: false });
-  }).catch(({ error }) => {
-    dispatch({ type: SET_ERROR_MESSAGE, message: 'error.status_message' });
+  }).catch((error) => {
+    toast.error(error.response.data.status_message);
     dispatch({ type: TOGGLE_LOADING, isLoading: false });
   });
 };
@@ -80,19 +81,22 @@ export const fetchDetailMovie = movieId => async (dispatch, getState) => {
 
     await dispatch({ type: SET_DATA_MOVIE, movieFix });
     await dispatch({ type: TOGGLE_LOADING_DETAIL, isLoadingDetail: false });
-  }).catch(({ error }) => {
-    dispatch({ type: SET_ERROR_MESSAGE, message: 'error.status_message' });
+  }).catch((error) => {
+    toast.error(error.response.data.status_message);
     dispatch({ type: TOGGLE_LOADING_DETAIL, isLoadingDetail: false });
   });
 };
 
 export const handleActionBuy = type => async (dispatch, getState) => {
   const data = getState().movies.movie;
+
   let movieFix = {};
   if (type === 'buy') {
     movieFix = Map(data).set('is_belong_to', true).toJS();
+    toast.success('purchasing success');
   } else {
     movieFix = Map(data).set('is_belong_to', false).toJS();
+    toast.success('cancel purchasing success');
   }
 
   await dispatch({ type: SET_DATA_MOVIE, movieFix });
