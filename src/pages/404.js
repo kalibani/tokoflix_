@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Container, Button } from 'reactstrap';
 import { bindActionCreators } from 'redux';
@@ -15,22 +15,17 @@ class Error404 extends Component {
       <Container className="error-404">
         <h1>404</h1>
         <h3>Page Not Found</h3>
-        <Button>Go Back</Button>
+        <Button tag={Link} href="/" to="/">Go Back</Button>
       </Container>
     );
   }
 }
-
-Error404.propTypes = {
-  // goTo: PropTypes.func.isRequired
-};
 
 const mapStateToProps = state => ({
   ...state
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  // goTo
 }, dispatch);
 
 

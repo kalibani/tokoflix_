@@ -47,7 +47,7 @@ class MainLayout extends React.Component {
                 <NavLink href="/" tag={Link} to="/">
                   <div className="tokoflix-navbar-saldo">
                     <span className="text">
-                    Saldo (Rp)
+                    Balance (Rp)
                     </span>
                     <span className="nominal">100.000</span>
                   </div>

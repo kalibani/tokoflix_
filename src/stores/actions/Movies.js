@@ -13,13 +13,13 @@ export const CHANGE_MOVIES_PER_PAGE = 'movies/CHANGE_MOVIES_PER_PAGE';
 export const fetchNowPlayingMovies = () => async (dispatch, getState) => {
   dispatch({ type: TOGGLE_LOADING, isLoading: true });
 
-  const queryString = {
-    language: 'en-US',
+  const params = {
+    language: 'id-ID',
     page: 1,
     region: 'id'
   };
 
-  await getNowPlayingMovies(queryString).then(async ({ data }) => {
+  await getNowPlayingMovies(params).then(async ({ data }) => {
     let moviesFix = [];
     const movie = getState().movies.movie;
     const moviesData = getState().movies.movies;
@@ -59,12 +59,12 @@ export const fetchNowPlayingMovies = () => async (dispatch, getState) => {
 export const fetchDetailMovie = movieId => async (dispatch, getState) => {
   dispatch({ type: TOGGLE_LOADING_DETAIL, isLoadingDetail: true });
 
-  const queryString = {
+  const params = {
     language: 'id-ID',
-    append: 'credits,similar,recommendations'
+    append_to_response: 'credits,similar,recommendations'
   };
 
-  await getNowPlayingMovie(movieId, queryString).then(async ({ data }) => {
+  await getNowPlayingMovie(movieId, params).then(async ({ data }) => {
     let movieFix = {};
     const movies = getState().movies.movies;
     movieFix = movies.filter(value => (value.id === data.id))[0];
@@ -77,7 +77,6 @@ export const fetchDetailMovie = movieId => async (dispatch, getState) => {
     } else {
       movieFix = Map(data).set('is_belong_to', false).toJS();
     }
-
 
     await dispatch({ type: SET_DATA_MOVIE, movieFix });
     await dispatch({ type: TOGGLE_LOADING_DETAIL, isLoadingDetail: false });
@@ -104,7 +103,7 @@ export const handlePagination = type => async (dispatch, getState) => {
   const movies = await getState().movies.movies;
   let currentPage;
   const size = 6;
-  let moviesPerPage = [];
+  let moviesPerPage;
 
   if (type === 'prev') {
     dispatch({ type: CHANGE_PAGE, currentPage: page - 1 });
