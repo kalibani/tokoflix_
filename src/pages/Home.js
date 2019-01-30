@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Row, Col } from 'reactstrap';
 import { fetchNowPlayingMovies, handlePagination } from '../stores/actions/Movies';
 import MovieList from '../components/MovieList';
 import BasePagination from '../components/BasePagination';
 import BaseMeta from '../components/BaseMeta';
+import BaseLoader from '../components/BaseLoader';
 
 import '../styles/index.scss';
 
@@ -25,21 +27,52 @@ class Home extends Component {
   render() {
     const { isMobile } = this.state;
     const {
-      moviesPerPage, currentPage, totalPage, handlePagination
+      moviesPerPage, currentPage, totalPage, handlePagination, isLoading
     } = this.props;
     return (
       <div className="tokoflix">
         <BaseMeta />
-        <MovieList movies={moviesPerPage} />
-        <div className="d-flex justify-content-center align-items-center">
-          <BasePagination
-            mobile={isMobile}
-            totalPage={totalPage}
-            currentPage={currentPage}
-            maxPageSize={totalPage}
-            onPageChange={handlePagination}
-          />
-        </div>
+        {
+          moviesPerPage.length === 0 && isLoading ? (
+            <Row>
+              <Col xs="12" sm="6" md="4" lg="4">
+                <BaseLoader />
+              </Col>
+              <Col xs="12" sm="6" md="4" lg="4">
+                <BaseLoader />
+              </Col>
+              <Col xs="12" sm="6" md="4" lg="4">
+                <BaseLoader />
+              </Col>
+              <Col xs="12" sm="6" md="4" lg="4">
+                <BaseLoader />
+              </Col>
+              <Col xs="12" sm="6" md="4" lg="4">
+                <BaseLoader />
+              </Col>
+              <Col xs="12" sm="6" md="4" lg="4">
+                <BaseLoader />
+              </Col>
+            </Row>
+
+          ) : moviesPerPage.length > 0 && !isLoading ? (
+            <React.Fragment>
+              <MovieList movies={moviesPerPage} />
+              <div className="d-flex justify-content-center align-items-center">
+                <BasePagination
+                  mobile={isMobile}
+                  totalPage={totalPage}
+                  currentPage={currentPage}
+                  maxPageSize={totalPage}
+                  onPageChange={handlePagination}
+                />
+              </div>
+            </React.Fragment>
+          ) : (
+            <h1>No Data Available</h1>
+          )
+        }
+
       </div>
     );
   }
@@ -50,13 +83,15 @@ Home.propTypes = {
   moviesPerPage: PropTypes.array.isRequired,
   currentPage: PropTypes.number.isRequired,
   totalPage: PropTypes.number.isRequired,
+  isLoading: PropTypes.bool.isRequired,
   handlePagination: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({ movies }) => ({
   moviesPerPage: movies.moviesPerPage,
   currentPage: movies.currentPage,
-  totalPage: movies.totalPage
+  totalPage: movies.totalPage,
+  isLoading: movies.isLoading
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
