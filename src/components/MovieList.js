@@ -8,16 +8,16 @@ const MovieList = ({ movies }) => (
     <div className="movies">
       <Row className="d-flex justify-content-center align-items-center">
         {
-            movies.length > 0 ? (
-              movies.map((movie, index) => (
-                <MovieItem movie={movie} key={index} />
-              ))
-            ) : (
-              <div>
-                No Data Available
-              </div>
-            )
-          }
+          movies.length > 0 ? (
+            movies.map((movie, index) => (
+              <MovieItem movie={movie} key={index} />
+            ))
+          ) : (
+            <div>
+              No Data Available
+            </div>
+          )
+        }
       </Row>
     </div>
 

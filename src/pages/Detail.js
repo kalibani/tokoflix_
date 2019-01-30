@@ -127,7 +127,7 @@ class Detail extends Component {
                         outline
                         color="success"
                         block
-                        onClick={() => handleActionBuy(movie.id, 'buy')}
+                        onClick={() => handleActionBuy('buy')}
                       >
                         <FontAwesomeIcon icon={faPlus} />
                         &nbsp;
@@ -138,7 +138,7 @@ class Detail extends Component {
                         outline
                         color="danger"
                         block
-                        onClick={() => handleActionBuy(movie.id, 'cancel')}
+                        onClick={() => handleActionBuy('cancel')}
                       >
                         <FontAwesomeIcon icon={faTimes} />
                         &nbsp;

@@ -1,0 +1,72 @@
+@import 'variables.scss';
+
+.custom-pagination{
+  .page-item{
+    .page-link{
+      width: 48px;
+      height: 48px;
+      border-radius: 4px;
+      margin-right: 10px;
+      font-size: 0.78em;
+      color: $black-paging;
+    }
+
+    &.next, &.prev{
+      &:first-child, &:last-child{
+        .page-link{
+          background: $darkblue-paging;
+          color: #fff;
+        }
+      }
+    }
+
+    &.active{
+      .page-link{
+        background: $white;
+        border: 1px solid $darkblue-paging;
+        color: $darkblue-paging;
+      }
+    }
+
+    &.disabled{
+      .page-link{
+        border: 1px solid $gray-disabled-text !important;
+        background: $gray-border !important;
+        color: $wolfgray-2 !important;
+      }
+    }
+  }
+
+  &.mobile{
+    .page-item{
+      .page-link{
+       width: 25px;
+       height: 25px; 
+       padding: 0px;
+       border-radius: 3px;
+       svg{
+        top: -1px;
+        position: relative;
+       }
+      }
+    }
+    .paging-mobile{
+      font-size: 0.78em;
+      min-width: 250px;
+      text-align: center;
+      margin-bottom: 0px;
+      padding-top: 3px;
+      @media screen and (max-width: 320px){
+        min-width: 230px;
+      }
+      .current-page{
+        color: $darkblue-paging;
+        font-weight: 600;
+        margin-right: 0.25rem;
+      }
+      .total-page{
+        margin-left: 0.25rem;
+      }
+    }
+  }
+}

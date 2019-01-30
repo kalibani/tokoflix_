@@ -2,22 +2,42 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchNowPlayingMovies } from '../stores/actions/Movies';
+import { fetchNowPlayingMovies, handlePagination } from '../stores/actions/Movies';
 import MovieList from '../components/MovieList';
+import BasePagination from '../components/BasePagination';
 
 import '../styles/index.scss';
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isMobile: window.innerWidth < 768
+    };
+  }
+
   componentDidMount() {
     const { fetchNowPlayingMovies } = this.props;
     fetchNowPlayingMovies();
   }
 
   render() {
-    const { movies } = this.props;
+    const { isMobile } = this.state;
+    const {
+      moviesPerPage, currentPage, totalPage, handlePagination
+    } = this.props;
     return (
       <div className="tokoflix">
-        <MovieList movies={movies} />
+        <MovieList movies={moviesPerPage} />
+        <div className="d-flex justify-content-center align-items-center">
+          <BasePagination
+            mobile={isMobile}
+            totalPage={totalPage}
+            currentPage={currentPage}
+            maxPageSize={totalPage}
+            onPageChange={handlePagination}
+          />
+        </div>
       </div>
     );
   }
@@ -25,15 +45,20 @@ class Home extends Component {
 
 Home.propTypes = {
   fetchNowPlayingMovies: PropTypes.func.isRequired,
-  movies: PropTypes.array.isRequired
+  moviesPerPage: PropTypes.array.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  totalPage: PropTypes.number.isRequired,
+  handlePagination: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({ movies }) => ({
-  movies: movies.movies
+  moviesPerPage: movies.moviesPerPage,
+  currentPage: movies.currentPage,
+  totalPage: movies.totalPage
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchNowPlayingMovies
+  fetchNowPlayingMovies, handlePagination
 }, dispatch);
 
 export default connect(
