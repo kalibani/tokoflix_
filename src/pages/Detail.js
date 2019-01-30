@@ -8,6 +8,7 @@ import {
   faCheck, faTimes, faPlus, faStar
 } from '@fortawesome/free-solid-svg-icons';
 import Rating from 'react-rating';
+import BaseMeta from '../components/BaseMeta';
 import {
   priceConverter, IDRFormatter, durationConverter, standardDate
 } from '../helpers/Method';
@@ -26,6 +27,7 @@ class Detail extends Component {
     const { movie, handleActionBuy } = this.props;
     return (
       <div className="tokoflix-container-detail">
+        <BaseMeta title={`Tokoflix - ${movie.title}`} />
         <Row>
           <Col xs="12" sm="6" md="4" lg="4">
             <div className="tokoflix-wrapper-image-detail">

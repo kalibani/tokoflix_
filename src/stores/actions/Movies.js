@@ -14,7 +14,7 @@ export const fetchNowPlayingMovies = () => async (dispatch, getState) => {
   dispatch({ type: TOGGLE_LOADING, isLoading: true });
 
   const queryString = {
-    language: 'id-ID',
+    language: 'en-US',
     page: 1,
     region: 'id'
   };

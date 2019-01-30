@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { fetchNowPlayingMovies, handlePagination } from '../stores/actions/Movies';
 import MovieList from '../components/MovieList';
 import BasePagination from '../components/BasePagination';
+import BaseMeta from '../components/BaseMeta';
 
 import '../styles/index.scss';
 
@@ -28,6 +29,7 @@ class Home extends Component {
     } = this.props;
     return (
       <div className="tokoflix">
+        <BaseMeta />
         <MovieList movies={moviesPerPage} />
         <div className="d-flex justify-content-center align-items-center">
           <BasePagination
