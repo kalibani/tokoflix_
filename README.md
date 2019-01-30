@@ -2,7 +2,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+For running this App locally, you can just run:
+## 1. Git Clone 'Url'
+## 2. Enter to directory 'cd tokoflix_'
+## 3. Npm install & npm run start
 
 ### `npm start`
 
