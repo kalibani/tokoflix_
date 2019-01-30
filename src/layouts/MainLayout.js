@@ -38,7 +38,7 @@ class MainLayout extends React.Component {
     const { children } = this.props;
     return (
       <div>
-        <Navbar light expand="md" className="tokoflix-navbar-container">
+        <Navbar light expand="md" fixed="top" className="tokoflix-navbar-container bg-white">
           <NavbarBrand href="/" tag={Link} to="/" className="tokoflix-navbar-brand">Tokoflix</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={isOpen} navbar>
