@@ -9,12 +9,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Rating from 'react-rating';
 import BaseMeta from '../components/BaseMeta';
+import SimilarMovie from '../components/SimilarMovie';
+import RecommendationsMovie from '../components/RecommendationsMovie';
 import {
   priceConverter, IDRFormatter, durationConverter, standardDate
 } from '../helpers/Method';
 
 import { fetchDetailMovie, handleActionBuy } from '../stores/actions/Movies';
-
 import '../styles/detail.scss';
 
 class Detail extends Component {
@@ -161,6 +162,8 @@ class Detail extends Component {
             </div>
           </Col>
         </Row>
+        <SimilarMovie movies={movie.similar ? movie.similar.results : []} />
+        <RecommendationsMovie movies={movie.recommendations ? movie.recommendations.results : []} title={movie.title} />
       </div>
     );
   }

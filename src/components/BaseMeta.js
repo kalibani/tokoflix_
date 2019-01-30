@@ -13,8 +13,8 @@ const Meta = ({ title, description }) => (
 );
 
 Meta.defaultProps = {
-  title: 'Tokoflix - Jual Beli Online Aman',
-  description: 'Tokoflix situs jual beli film legal dan aman'
+  title: 'Tokoflix - Streaming Movie Online',
+  description: 'Tokoflix situs streaming film legal dan aman'
 };
 
 Meta.propTypes = {

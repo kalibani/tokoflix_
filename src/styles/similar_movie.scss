@@ -1,0 +1,13 @@
+@import 'variables.scss';
+
+.container-similar-movies {
+  h1 {
+    font-size: 24px;
+    color: $gray-light;
+  }
+  .similar-movie-poster {     
+    img {
+      width: 100%
+    }
+  } 
+}

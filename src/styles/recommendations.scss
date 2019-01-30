@@ -1,0 +1,18 @@
+@import 'variables.scss';
+
+.container-recommendations-movies {
+  margin-top: 10px;
+  h1 {
+    font-size: 24px;
+    color: $gray-light;
+    span {
+      margin-left: 10px;
+      color: $black-paging;
+    }
+  }
+  .recommendations-movie-poster {     
+    img {
+      width: 100%
+    }
+  } 
+}
