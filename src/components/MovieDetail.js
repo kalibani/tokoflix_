@@ -80,7 +80,7 @@ class MovieDetail extends Component {
                 <span>{standardDate(movie.release_date)}</span>
                 <span>
                 (
-                  {movie.production_countries && movie.production_countries[0].iso_3166_1}
+                  {movie.production_countries && movie.production_countries.length > 0 && movie.production_countries[0].iso_3166_1}
                 )
                 </span>
               </div>
