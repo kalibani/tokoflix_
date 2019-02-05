@@ -36,9 +36,7 @@ class Home extends Component {
         <BaseMeta />
         <ToastContainer autoClose={3000} />
         {
-          moviesPerPage.length === 0 && !isLoading ? (
-            <h1>No Data Available</h1>
-          ) : moviesPerPage.length === 0 && isLoading ? (
+          moviesPerPage.length === 0 && isLoading ? (
             <Row>
               <Col xs="12" sm="6" md="4" lg="4">
                 <BaseLoader />
@@ -59,6 +57,8 @@ class Home extends Component {
                 <BaseLoader />
               </Col>
             </Row>
+          ) : moviesPerPage.length === 0 && !isLoading ? (
+            <h1>No Data Available</h1>
           ) : (
             <React.Fragment>
               <MovieList movies={moviesPerPage} />
