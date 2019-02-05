@@ -32,15 +32,7 @@ class Detail extends Component {
           <div>
             <h1>No Data Available</h1>
           </div>
-        ) : Object.keys(movie).length > 0 && !isLoadingDetail ? (
-          <React.Fragment>
-            <BaseMeta title={`Tokoflix - ${movie.title}`} />
-            <MovieDetail movie={movie} />
-            <MovieDetailOverview overview={movie.overview} />
-            <SimilarMovie movies={movie.similar ? movie.similar.results : []} />
-            <RecommendationsMovie movies={movie.recommendations ? movie.recommendations.results : []} title={movie.title} />
-          </React.Fragment>
-        ) : (
+        ) : Object.keys(movie).length === 0 && isLoadingDetail ? (
           <React.Fragment>
             <Row>
               <Col xs="12" sm="6" md="4" lg="4">
@@ -55,6 +47,14 @@ class Detail extends Component {
                 <BaseLoaderText />
               </Col>
             </Row>
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            <BaseMeta title={`Tokoflix - ${movie.title}`} />
+            <MovieDetail movie={movie} />
+            <MovieDetailOverview overview={movie.overview} />
+            <SimilarMovie movies={movie.similar ? movie.similar.results : []} />
+            <RecommendationsMovie movies={movie.recommendations ? movie.recommendations.results : []} title={movie.title} />
           </React.Fragment>
         )
       }

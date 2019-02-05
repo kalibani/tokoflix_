@@ -38,20 +38,7 @@ class Home extends Component {
         {
           moviesPerPage.length === 0 && !isLoading ? (
             <h1>No Data Available</h1>
-          ) : moviesPerPage.length > 0 && !isLoading ? (
-            <React.Fragment>
-              <MovieList movies={moviesPerPage} />
-              <div className="d-flex justify-content-center align-items-center">
-                <BasePagination
-                  mobile={isMobile}
-                  totalPage={totalPage}
-                  currentPage={currentPage}
-                  maxPageSize={totalPage}
-                  onPageChange={handlePagination}
-                />
-              </div>
-            </React.Fragment>
-          ) : (
+          ) : moviesPerPage.length === 0 && isLoading ? (
             <Row>
               <Col xs="12" sm="6" md="4" lg="4">
                 <BaseLoader />
@@ -72,6 +59,19 @@ class Home extends Component {
                 <BaseLoader />
               </Col>
             </Row>
+          ) : (
+            <React.Fragment>
+              <MovieList movies={moviesPerPage} />
+              <div className="d-flex justify-content-center align-items-center">
+                <BasePagination
+                  mobile={isMobile}
+                  totalPage={totalPage}
+                  currentPage={currentPage}
+                  maxPageSize={totalPage}
+                  onPageChange={handlePagination}
+                />
+              </div>
+            </React.Fragment>
           )
         }
 
