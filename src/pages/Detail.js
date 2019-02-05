@@ -28,7 +28,19 @@ class Detail extends Component {
       <div className="tokoflix-container-detail">
         <ToastContainer autoClose={2000} />
         {
-        Object.keys(movie).length === 0 && isLoadingDetail ? (
+        Object.keys(movie).length === 0 && !isLoadingDetail ? (
+          <div>
+            <h1>No Data Available</h1>
+          </div>
+        ) : Object.keys(movie).length > 0 && !isLoadingDetail ? (
+          <React.Fragment>
+            <BaseMeta title={`Tokoflix - ${movie.title}`} />
+            <MovieDetail movie={movie} />
+            <MovieDetailOverview overview={movie.overview} />
+            <SimilarMovie movies={movie.similar ? movie.similar.results : []} />
+            <RecommendationsMovie movies={movie.recommendations ? movie.recommendations.results : []} title={movie.title} />
+          </React.Fragment>
+        ) : (
           <React.Fragment>
             <Row>
               <Col xs="12" sm="6" md="4" lg="4">
@@ -44,19 +56,6 @@ class Detail extends Component {
               </Col>
             </Row>
           </React.Fragment>
-
-        ) : Object.keys(movie).length > 0 && !isLoadingDetail ? (
-          <React.Fragment>
-            <BaseMeta title={`Tokoflix - ${movie.title}`} />
-            <MovieDetail movie={movie} />
-            <MovieDetailOverview overview={movie.overview} />
-            <SimilarMovie movies={movie.similar ? movie.similar.results : []} />
-            <RecommendationsMovie movies={movie.recommendations ? movie.recommendations.results : []} title={movie.title} />
-          </React.Fragment>
-        ) : (
-          <div>
-            <h1>No Data Available</h1>
-          </div>
         )
       }
 
