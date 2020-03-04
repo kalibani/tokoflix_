@@ -47,7 +47,8 @@ module.exports = {
       }],
       'no-underscore-dangle': ['error', { 
         'allow': ['_id'] 
-      }]
+      }],
+      'no-use-before-define': ['error', { 'functions': false, 'classes': false, 'variables': false }]
     },
     globals: {},
     settings: {}

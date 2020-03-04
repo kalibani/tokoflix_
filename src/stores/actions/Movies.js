@@ -10,6 +10,11 @@ export const TOGGLE_LOADING_DETAIL = 'movies/TOGGLE_LOADING_DETAIL';
 export const SET_ERROR_MESSAGE = 'movies/SET_ERROR_MESSAGE';
 export const CHANGE_PAGE = 'movies/CHANGE_PAGE';
 export const CHANGE_MOVIES_PER_PAGE = 'movies/CHANGE_MOVIES_PER_PAGE';
+export const UPDATE_INPUT_VALUE = 'movies/UPDATE_INPUT_VALUE';
+export const CLEAR_SUGGESTIONS = 'movies/CLEAR_SUGGESTIONS';
+export const MAYBE_UPDATE_SUGGESTIONS = 'movies/MAYBE_UPDATE_SUGGESTIONS';
+export const LOAD_SUGGESTIONS_BEGIN = 'movies/LOAD_SUGGESTIONS_BEGIN';
+export const SET_FILTER_RESULT = 'movies/SET_FILTER_RESULT';
 
 export const fetchNowPlayingMovies = () => async (dispatch, getState) => {
   dispatch({ type: TOGGLE_LOADING, isLoading: true });
@@ -127,4 +132,21 @@ export const handlePagination = type => async (dispatch, getState) => {
   }
 
   await dispatch(push(`/?page=${currentPage}`));
+};
+
+export const handleFilterMovies = e => (dispatch, getState) => {
+  const value = e.target.value;
+  const movies = getState().movies.movies;
+  if (value) {
+    const result = [...movies].filter(item => item.title.toLowerCase().indexOf(value.toLowerCase()) !== -1);
+    dispatch({
+      type: SET_FILTER_RESULT,
+      result
+    });
+  } else {
+    dispatch({
+      type: SET_FILTER_RESULT,
+      result: [...movies]
+    });
+  }
 };

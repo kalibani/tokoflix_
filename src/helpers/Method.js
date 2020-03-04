@@ -35,3 +35,8 @@ export const truncateString = (str) => {
   const stringSplitted = `${str.substring(0, 50)}...`;
   return stringSplitted;
 };
+
+
+export const escapeRegexCharacters = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+export const randomDelay = () => 300 + Math.random() * 1000;

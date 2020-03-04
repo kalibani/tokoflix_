@@ -1,5 +1,5 @@
 import {
-  SET_DATA_MOVIES, SET_DATA_MOVIE, TOGGLE_LOADING, TOGGLE_LOADING_DETAIL, SET_ERROR_MESSAGE, CHANGE_PAGE, CHANGE_MOVIES_PER_PAGE
+  SET_DATA_MOVIES, SET_DATA_MOVIE, TOGGLE_LOADING, TOGGLE_LOADING_DETAIL, SET_ERROR_MESSAGE, CHANGE_PAGE, CHANGE_MOVIES_PER_PAGE, SET_FILTER_RESULT
 } from '../actions/Movies';
 
 
@@ -55,6 +55,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         errorMessage: action.message
+      };
+    case SET_FILTER_RESULT:
+      return {
+        ...state,
+        moviesPerPage: action.result
       };
 
     default:
