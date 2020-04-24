@@ -2,6 +2,9 @@ import { Map } from 'immutable';
 import { push } from 'react-router-redux';
 import { toast } from 'react-toastify';
 import { getNowPlayingMovies, getNowPlayingMovie } from '../../api';
+import {
+  priceConverter, inputDate
+} from '../../helpers/Method';
 
 export const SET_DATA_MOVIES = 'movies/SET_DATA_MOVIES';
 export const SET_DATA_MOVIE = 'movies/SET_DATA_MOVIE';
@@ -96,9 +99,17 @@ export const handleActionBuy = type => async (dispatch, getState) => {
   const data = getState().movies.movie;
 
   let movieFix = {};
+  const price = priceConverter(data.vote_average);
+  const date = inputDate(new Date());
+
+  console.warn('jalan sat');
   if (type === 'buy') {
     movieFix = Map(data).set('is_belong_to', true).toJS();
-    toast.success('purchasing success');
+    toast.success('Please waiting you will be redirecting to PermataNET.com');
+    setTimeout(() => {
+      window.open(`http://localhost:3000/permatanet-pay?vaNumber=8965050000000045&transactionDate=${date}&amount=${price}&callbackUrl=${window.location.href}&callbackUrl2=ulr2&description=testing`, '_blank');
+    },
+    3000);
   } else {
     movieFix = Map(data).set('is_belong_to', false).toJS();
     toast.success('cancel purchasing success');
