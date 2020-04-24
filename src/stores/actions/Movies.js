@@ -102,12 +102,11 @@ export const handleActionBuy = type => async (dispatch, getState) => {
   const price = priceConverter(data.vote_average);
   const date = inputDate(new Date());
 
-  console.warn('jalan sat');
   if (type === 'buy') {
     movieFix = Map(data).set('is_belong_to', true).toJS();
     toast.success('Please waiting you will be redirecting to PermataNET.com');
     setTimeout(() => {
-      window.open(`http://localhost:3000/permatanet-pay?vaNumber=8965050000000045&transactionDate=${date}&amount=${price}&callbackUrl=${window.location.href}&callbackUrl2=ulr2&description=testing`, '_blank');
+      window.open(`https://pnet.pbdevtest.com/pnet/permatanet-pay?vaNumber=8965050000000045&transactionDate=${date}&amount=${price}&callbackUrl=${window.location.href}&callbackUrl2=ulr2&description=testing`, '_blank');
     },
     3000);
   } else {
